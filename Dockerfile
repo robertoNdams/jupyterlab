@@ -128,7 +128,7 @@ RUN wget -qO - https://dl.google.com/go/go1.11.linux-amd64.tar.gz | tar -xz -C /
 RUN mkdir /root/go
 ENV PATH $PATH:/usr/local/go/bin
 ENV GOPATH=/root/go
-RUN apt install -y git libzmq3-dev
+RUN apt install -y git libzmq3-dev inkscape
 RUN go get -u github.com/gopherdata/gophernotes
 RUN mkdir /usr/local/share/jupyter/kernels/gophernotes
 RUN cp $GOPATH/src/github.com/gopherdata/gophernotes/kernel/* /usr/local/share/jupyter/kernels/gophernotes
