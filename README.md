@@ -16,15 +16,14 @@ You can work with a variety of kernels
 - Python (2,3)
 - Go
 - R
-- Spark (PySpark, scala, SQL, R)
+- Apache Toree (scala, SQL, R)
+- PySpark 
 
-------------------------------------
+-----
 
-## Some awesome features of this lab.
+## How to use external frameworks (graphframes, databricks, etcc..)
 
---------------------------------------
-
-### Pixiedust as How to use external frameworks (graphframes, databricks, etcc..) in PySpark 
-[Demo Graphframe](https://github.com/robertoNdams/jupyterlab/blob/master/DemoGraphframeIPY.pdf)
+-  **In PySpark** :  [Demo Graphframe](https://github.com/robertoNdams/jupyterlab/blob/master/DemoGraphframeIPY.pdf)
+-  **with Apache Toree**: [Toree scala](https://github.com/robertoNdams/jupyterlab/blob/master/ToreeScala.pdf)  
 
 
