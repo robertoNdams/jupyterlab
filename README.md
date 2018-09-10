@@ -25,6 +25,6 @@ You can work with a variety of kernels
 --------------------------------------
 
 ### Pixiedust as How to use external frameworks (graphframes, databricks, etcc..) in PySpark 
-![Demo Graphframe](/jupyterlab/DemoGraphframeIPY.pdf)
+! [Demo Graphframe] (/jupyterlab/blob/master/DemoGraphframeIPY.pdf)
 
 
