@@ -11,3 +11,7 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Spark repositories
+derby.log
+metastore_db
