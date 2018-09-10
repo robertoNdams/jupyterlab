@@ -24,6 +24,7 @@ You can work with a variety of kernels
 ## How to use external frameworks (graphframes, databricks, etcc..)
 
 -  **In PySpark** :  [Demo Graphframe](https://github.com/robertoNdams/jupyterlab/blob/master/DemoGraphframeIPY.pdf)
--  **with Apache Toree**: [Toree scala](https://github.com/robertoNdams/jupyterlab/blob/master/ToreeScala.pdf)  
+-  **with Apache Toree**: [Toree scala](https://github.com/robertoNdams/jupyterlab/blob/master/ToreeScala.pdf) 
 
 
+- Working with (golang): [Golang](https://github.com/robertoNdams/jupyterlab/blob/master/Golang.pdf)
