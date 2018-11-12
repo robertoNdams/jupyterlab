@@ -10,6 +10,11 @@ Lab for engineers and scientists with kernels python2, python3, R, go, Spark (py
     PASSWORD=xxxxx
     BASEURL=$USER (you can change when you want)
     docker run -it --rm -p $PORT:8888 -e PASSWORD=$PASSWORD -e BASEURL=$BASEURL --name jupyterlab lab
+  
+  or
+  
+    docker run -it --rm -p $PORT:8888 -e PASSWORD=$PASSWORD -e BASEURL=$BASEURL --name jupyterlab gillesndams/jupyterlab
+  
     
 ## kernels
 You can work with a variety of kernels
@@ -23,7 +28,7 @@ You can work with a variety of kernels
 
 ## How to use external frameworks (graphframes, databricks, etcc..)
 
--  **In PySpark** :  [Demo Graphframe](https://github.com/robertoNdams/jupyterlab/blob/master/DemoGraphframeIPY.pdf)
+-  **In PySpark** :  [Demo Graphframe](https://github.com/robertoNdams/jupyterlab/blob/master/examples/DemoGraphframeIPY.ipynb)
 -  **with Apache Toree**: [Toree scala](https://github.com/robertoNdams/jupyterlab/blob/master/ToreeScala.pdf) 
 
 
