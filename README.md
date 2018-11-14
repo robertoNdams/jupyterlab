@@ -32,4 +32,4 @@ You can work with a variety of kernels
 -  **with Apache Toree**: [Toree scala](https://github.com/robertoNdams/jupyterlab/blob/master/ToreeScala.pdf) 
 
 
-- Working with (golang): [Golang](https://github.com/robertoNdams/jupyterlab/blob/master/Golang.pdf)
+- Working with (golang): [Golang](https://github.com/robertoNdams/jupyterlab/blob/master/examples/Golang.ipynb)
