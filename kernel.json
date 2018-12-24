@@ -1,17 +1,17 @@
 {
- "display_name": "PySpark (Spark 2.2.0)",
- "language": "python",
+ "display_name": "PySpark (Spark 2.4.0)",
+ "language": "python3",
    "argv": [
-      "/usr/bin/python",
+      "/usr/bin/python3",
       "-m",
       "ipykernel",
 	  "-f",
 	  "{connection_file}"
  ],
  "env": {
-  "PYSPARK_PYTHON": "/usr/bin/python",
+  "PYSPARK_PYTHON": "/usr/bin/python3",
   "SPARK_HOME": "/usr/local/spark",
-  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.4-src.zip:/usr/local/spark/python/",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python/",
   "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",																					
   "PYSPARK_SUBMIT_ARGS": "--driver-class-path /root/data/libs/pixiedust.jar:/root/data/libs/* pyspark-shell"																														 }																																						
 }							  
