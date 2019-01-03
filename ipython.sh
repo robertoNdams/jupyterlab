@@ -12,5 +12,5 @@ if [ ! -f $PEM_FILE ]; then
   HASH=$(python -c "from IPython.lib import passwd; print(passwd('${PASSWORD}'))")
   unset PASSWORD
   #jupyter notebook --no-browser --allow-root --port 8888 --ip=* --certfile=$PEM_FILE --NotebookApp.password="$HASH"
-  #jupyter lab --no-browser --allow-root --port 8888 --ip=* --NotebookApp.password="$HASH" --NotebookApp.allow_origin=* --NotebookApp.base_url="${BASEURL}"
-  jupyter lab --no-browser --allow-root --port 8888 --ip=0.0.0.0 --NotebookApp.password="$HASH" --NotebookApp.allow_origin=* 
+  cat banner.txt
+  jupyter lab --no-browser --allow-root --port 8888 --ip=* --NotebookApp.password="" --NotebookApp.allow_origin=* --NotebookApp.base_url="${BASEURL}"

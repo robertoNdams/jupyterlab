@@ -139,4 +139,5 @@ ENV PATH $PATH:/root/go/bin
 RUN jupyter toree install --spark_home=${SPARK_HOME} --interpreters=Scala,SQL,SparkR --kernel_name='Spark' 
 RUN pip3 install jupyterlab && pip2 install jupyterlab
 RUN chmod u+x /ipython.sh
+ADD banner.txt /
 CMD ["/ipython.sh"]
