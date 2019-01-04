@@ -7,13 +7,12 @@ Lab for engineers and scientists with kernels python2, python3, R, go, Spark (py
     
 ## Run lab
     PORT=xxxx
-    PASSWORD=xxxxx
-    BASEURL=$USER (you can change when you want)
-    docker run -it --rm -p $PORT:8888 -e PASSWORD=$PASSWORD -e BASEURL=$BASEURL --name jupyterlab lab
+    BASEURL=xxxxx (if not set the BASEURL is jupyterogen)
+    docker run -it --rm -p $PORT:8888 -e BASEURL=$BASEURL --name jupyterlab lab
   
   or
   
-    docker run -it --rm -p $PORT:8888 -e PASSWORD=$PASSWORD -e BASEURL=$BASEURL --name jupyterlab gillesndams/jupyterlab
+    docker run -it --rm -p $PORT:8888 --name jupyterlab gillesndams/jupyterlab
   
     
 ## kernels
