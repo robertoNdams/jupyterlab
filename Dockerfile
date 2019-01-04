@@ -66,10 +66,11 @@ RUN apt-get update && \
 RUN apt-get update
 RUN apt-get install -y \
 software-properties-common \
-python-software-properties 
+python3-software-properties 
 
 RUN add-apt-repository -y ppa:marutter/rrutter
 RUN apt-get update
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y \
 r-base-core \
 r-base \
@@ -77,19 +78,20 @@ r-base-dev
 
 # Finelize the R install kernel:
 RUN R -e "install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'), repos = 'http://cran.us.r-project.org')"
-RUN apt install -y libcurl4-openssl-dev libssl-dev
+RUN apt update && apt install -y libcurl4-openssl-dev libssl-dev
 RUN R -e "install.packages(c('devtools'), repos = 'http://cran.us.r-project.org')"
+RUN apt install -y git 
 RUN R -e "devtools::install_github('IRkernel/IRkernel')"
 
 #RUN R -e "install.packages(c('ggplot2', 'plyr', 'reshape2', 'RColorBrewer', 'scales','grid', 'wesanderson', 'bigrquery','googleCloudStorageR','rmarkdown','flexdashboard'), repos='http://cran.us.r-project.org', dependencies=TRUE)"
 RUN R -e "IRkernel::installspec()"
 
 # Install spark 
-ENV  APACHE_SPARK_VERSION 2.2.0
+ENV  APACHE_SPARK_VERSION 2.4.0
 RUN add-apt-repository ppa:openjdk-r/ppa
 RUN apt-get update
 RUN  apt-get install -y --no-install-recommends openjdk-8-jre-headless wget 
-RUN  wget -qO - http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz |tar -xz -C /usr/local/
+RUN  wget -qO - http://mirrors.standaloneinstaller.com/apache/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz |tar -xz -C /usr/local/
 RUN  cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7 spark
 ENV  SPARK_HOME /usr/local/spark
 
@@ -105,10 +107,8 @@ EXPOSE 8888
 # You can mount your own SSL certs as necessary here
 ENV PEM_FILE /key.pem
 
-# $PASSWORD will get `unset` within ipython_notebook_startup.sh, turned into an IPython style hash
-ENV PASSWORD Dont make this your default
-ENV BASEURL Dont make this your default
-ADD ipython.sh /
+# Default BASEURL is jupyterogen ; set a BASEURL while docker run to change that 
+ENV BASEURL jupyterogen 
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
@@ -136,5 +136,9 @@ ENV PATH $PATH:/root/go/bin
 
 RUN jupyter toree install --spark_home=${SPARK_HOME} --interpreters=Scala,SQL,SparkR --kernel_name='Spark' 
 RUN pip3 install jupyterlab && pip2 install jupyterlab
+RUN pip2 install ipympl && pip3 install ipympl 
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
+ADD ipython.sh /
 RUN chmod u+x /ipython.sh
+ADD banner.txt /
 CMD ["/ipython.sh"]
