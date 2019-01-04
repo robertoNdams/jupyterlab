@@ -107,10 +107,8 @@ EXPOSE 8888
 # You can mount your own SSL certs as necessary here
 ENV PEM_FILE /key.pem
 
-# $PASSWORD will get `unset` within ipython_notebook_startup.sh, turned into an IPython style hash
-ENV PASSWORD Dont make this your default
-ENV BASEURL Dont make this your default
-ADD ipython.sh /
+# Default BASEURL is jupyterogen ; set a BASEURL while docker run to change that 
+ENV BASEURL jupyterogen 
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
@@ -138,6 +136,9 @@ ENV PATH $PATH:/root/go/bin
 
 RUN jupyter toree install --spark_home=${SPARK_HOME} --interpreters=Scala,SQL,SparkR --kernel_name='Spark' 
 RUN pip3 install jupyterlab && pip2 install jupyterlab
+RUN pip2 install ipympl && pip3 install ipympl 
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
+ADD ipython.sh /
 RUN chmod u+x /ipython.sh
 ADD banner.txt /
 CMD ["/ipython.sh"]
